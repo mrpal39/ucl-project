@@ -7,8 +7,9 @@ from rest_framework_simplejwt.views import TokenRefreshView,TokenVerifyView
 app_name = 'users'
 
 urlpatterns = [
-    path('create/', CustomUserCreate.as_view(), name="create_user"),
-
+    path('create/', UserCreate.as_view(), name="create_user"),
+    path('users/', UserList.as_view()),
+    path('user/<int:pk>/', UserDetail.as_view()),
 
 
     path('verify/', TokenVerifyView.as_view(), name='token_verify'),

@@ -1,7 +1,7 @@
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 from rest_framework import serializers
-from .models import users
+from .models import User
 
 
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
@@ -20,19 +20,11 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 
 
 
-class CustomUserSerializer(serializers.ModelSerializer):
-    """
-    Currently unused in preference of the below.
-    """
-    email = serializers.EmailField(required=True)
-    user_name = serializers.CharField(required=True)
-    first_name = serializers.CharField(required=True)
-    last_name = serializers.CharField(required=True)
-    password = serializers.CharField(min_length=8, write_only=True)
+class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = users
-        fields = ('email', 'user_name', 'first_name', 'last_name', 'password')
+        model = User
+        fields = ('id','email', 'username', 'first_name', 'last_name', 'password')
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
