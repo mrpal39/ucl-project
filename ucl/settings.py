@@ -1,4 +1,5 @@
 
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -67,14 +68,11 @@ WSGI_APPLICATION = 'ucl.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
+'default': {
+    'ENGINE': 'djongo',
+    'NAME': 'MyDB',
+}}
 AUTH_USER_MODEL = "accounts.User"
 
 # Password validation
