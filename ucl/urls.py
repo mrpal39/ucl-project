@@ -11,8 +11,9 @@ router = DefaultRouter()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/', include('accounts.urls')),
-    # path('api/v1', include('rest_framework.urls'))
+    path('api/', include('accounts.urls')),
+    path('api/', include('djoser.urls')),
+    path('api/', include('djoser.urls.authtoken')),
 
 ]
 
